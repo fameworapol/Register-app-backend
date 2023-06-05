@@ -9,5 +9,6 @@ public class UserException extends BaseException{
     public static UserException emailNull(){return new UserException("register.email.null");}
     public static UserException requestStdIdNull(){return new UserException("register.stdid.null");}
     public static UserException passwordNull(){return new UserException("register.password.null");}
-    public static UserException nameNull(){return new UserException("regsiter.name.null");}
+    public static UserException nameNull(){return new UserException("register.name.null");}
+    public static UserException emailAlreadyExist(){return new UserException("email.already.exist");}
 }

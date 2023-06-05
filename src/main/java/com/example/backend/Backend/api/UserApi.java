@@ -1,6 +1,8 @@
 package com.example.backend.Backend.api;
 
+import com.example.backend.Backend.entity.User;
 import com.example.backend.Backend.exception.UserException;
+import com.example.backend.Backend.model.ModelLogin;
 import com.example.backend.Backend.model.ModelRegsiterRequest;
 import com.example.backend.Backend.model.testResponse;
 import com.example.backend.Backend.business.UserBusiness;
@@ -37,9 +39,16 @@ public class UserApi {
 
     @PostMapping
     @RequestMapping(value = "/register")
-    public ResponseEntity<String> register(@RequestBody ModelRegsiterRequest request) throws UserException {
-        String response = business.register(request);
-        return ResponseEntity.ok("complete");
+    public ResponseEntity<User> register(@RequestBody ModelRegsiterRequest request) throws UserException {
+        User response = business.register(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping
+    @RequestMapping(value = "/login")
+    public ResponseEntity<String> login(@RequestBody ModelLogin request) throws UserException {
+        String response = business.login(request);
+        return ResponseEntity.ok("login complete");
     }
 
 
