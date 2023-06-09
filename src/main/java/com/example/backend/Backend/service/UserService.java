@@ -6,6 +6,8 @@ import com.example.backend.Backend.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
     private final PasswordEncoder passwordEncoder;
@@ -25,4 +27,9 @@ public class UserService {
         entity.setPassword(passwordEncoder.encode(password));
         return userRepository.save(entity);
     }
+    public Optional<User> findByEmail(String email){return userRepository.findByEmail(email);}
+    public boolean matchPassword(String rawPassword,String encoddedPassword){
+        return passwordEncoder.matches(rawPassword,encoddedPassword);
+    }
+
 }

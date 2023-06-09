@@ -11,4 +11,6 @@ public class UserException extends BaseException{
     public static UserException passwordNull(){return new UserException("register.password.null");}
     public static UserException nameNull(){return new UserException("register.name.null");}
     public static UserException emailAlreadyExist(){return new UserException("email.already.exist");}
+    public static UserException emailIsNotAlready(){return new UserException("email.not.already");}
+    public static UserException passwordNotMatch(){return new UserException("password.not.match");}
 }
